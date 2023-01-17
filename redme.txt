@@ -1,0 +1,31 @@
+
+// Paginaction Get All the Data;
+e.g; http://localhost:2023/api/users?page=2&limit=4
+
+// Filter with Page and limit METHOD GET
+ e.g; http://localhost:2023/api/get?pageNumber=5&pageSize=5
+
+// sorting GET Method all data
+e.g; http://localhost:2023/api?userName=dev&companyName=kaspro
+
+    
+url -- http://localhost:2023/api-docs/#/Users/post_post
+
+Beginner's guide to using MySQL database in a Node.js app-------
+
+https://www.javatpoint.com/nodejs-os
+
+https://levelup.gitconnected.com/the-simplest-way-to-add-swagger-to-a-node-js-project-c2a4aa895a3c
+
+https://www.javacodegeeks.com/api-documentation-in-node-js-using-swagger.html
+
+
+https://www.freecodecamp.org/news/build-a-restful-api-using-node-express-and-mongodb
+
+https://www.tutsmake.com/first-crud-node-express-js-mysql-example/
+
+https://dev.to/lisahjung/beginner-s-guide-to-using-mysql-database-in-a-node-js-app-49li
+
+check opject is null-------
+
+https://www.freecodecamp.org/news/how-to-check-if-an-object-has-a-key-in-javascript/

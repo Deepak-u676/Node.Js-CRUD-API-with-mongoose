@@ -1,0 +1,662 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "API Documentations in Node. Js using swagger with mongoose.",
+    "description": "Node.Js CRUD API with mongoose",
+    "contact": {
+      "name": "Sarvesh Upadhyay",
+      "email": "devtesting676@gmail.com",
+      "url": "http://localhost:2023/api-docs"
+    }
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "basePath": "/",
+  "apis": [
+    "./routes//routes.js"
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users"
+    }
+  ],
+  "host": "localhost:2023/api",
+  "paths": {
+    "/post": {
+      "parameters": [
+        {
+          "name": "company_name",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "employee_id",
+          "in": "query",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "name": "job_id",
+          "in": "query",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "name": "department_id",
+          "in": "query",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "name": "manager_id",
+          "in": "query",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "name": "age",
+          "in": "query",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "name": "email",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "phone_number",
+          "in": "query",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "name": "street",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "city",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "pincode",
+          "in": "query",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "name": "company_website",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create user",
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "404": {
+            "description": "A user with the specified ID was not found"
+          },
+          "400": {
+            "description": "Bad request. User ID must be an integer and larger than 0."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          }
+        }
+      }
+    },
+    "/getAll": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users",
+        "responses": {
+          "200": {
+            "description": "ok"
+          },
+          "404": {
+            "description": "A user with the specified ID was not found"
+          },
+          "400": {
+            "description": "Bad request. User ID must be an integer and larger than 0."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          }
+        }
+      }
+    },
+    "/updateById/{id}": {
+      "tags": [
+        "Users"
+      ],
+      "description": "Update user",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "description": "Id of the user which is to be searched"
+        },
+        {
+          "name": "company_name",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "first_name",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "last_name",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "employee_id",
+          "in": "query",
+          "type": "number"
+        },
+        {
+          "name": "job_id",
+          "in": "query",
+          "type": "number"
+        },
+        {
+          "name": "department_id",
+          "in": "query",
+          "type": "number"
+        },
+        {
+          "name": "manager_id",
+          "in": "query",
+          "type": "number"
+        },
+        {
+          "name": "age",
+          "in": "query",
+          "type": "number"
+        },
+        {
+          "name": "email",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "phone_number",
+          "in": "query",
+          "type": "number"
+        },
+        {
+          "name": "street",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "city",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "pincode",
+          "in": "query",
+          "type": "number"
+        },
+        {
+          "name": "company_website",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "update user by id",
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/Update_By_Id"
+            }
+          },
+          "404": {
+            "description": "A user with the specified ID was not found"
+          },
+          "400": {
+            "description": "Bad request. User ID must be an integer and larger than 0."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          }
+        }
+      }
+    },
+    "/delete/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "user ID",
+          "example": "5c0728badc70ea3dec00d8e6"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "delete user by id",
+        "responses": {
+          "200": {
+            "description": "ok"
+          },
+          "404": {
+            "description": "A user with the specified ID was not found"
+          },
+          "400": {
+            "description": "Bad request. User ID must be an integer and larger than 0."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          }
+        }
+      }
+    },
+    "/getById/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Id of the user which is to be searched",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user by id",
+        "responses": {
+          "200": {
+            "description": "ok"
+          },
+          "404": {
+            "description": "A user with the specified ID was not found"
+          },
+          "400": {
+            "description": "Bad request. User ID must be an integer and larger than 0."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          }
+        }
+      }
+    },
+    "/deleteAll": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "delete all users in database",
+        "responses": {
+          "200": {
+            "description": "ok"
+          },
+          "404": {
+            "description": "A user with the specified ID was not found"
+          },
+          "400": {
+            "description": "Bad request. User ID must be an integer and larger than 0."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          }
+        }
+      }
+    },
+    "/users": {
+      "parameters": [
+        {
+          "name": "first_name",
+          "in": "query",
+          "required": true,
+          "description": "first_name of the user which is to be searched",
+          "type": "string"
+        },
+        {
+          "name": "employee_id",
+          "in": "query",
+          "required": true,
+          "description": "employee_id of the user which is to be searched",
+          "type": "number"
+        },
+        {
+          "name": "job_id",
+          "in": "query",
+          "description": "job_id of the user which is to be searched",
+          "type": "number"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "filter user by companyName, userName, email",
+        "responses": {
+          "200": {
+            "description": "ok"
+          },
+          "404": {
+            "description": "A user with the specified ID was not found"
+          },
+          "400": {
+            "description": "Bad request. User ID must be an integer and larger than 0."
+          },
+          "401": {
+            "description": "Authorization information is missing or invalid."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "required": [
+        "userName",
+        "id",
+        "age"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "employee": {
+          "type": "object",
+          "properties": {
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "employee_id": {
+              "type": "number"
+            },
+            "job_id": {
+              "type": "number"
+            },
+            "department_id": {
+              "type": "number"
+            },
+            "manager_id": {
+              "type": "number"
+            },
+            "age": {
+              "type": "number"
+            },
+            "email": {
+              "type": "string"
+            },
+            "phone_number": {
+              "type": "number"
+            }
+          }
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "pincode": {
+              "type": "number"
+            }
+          }
+        },
+        "company_website": {
+          "type": "string"
+        },
+        "company": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "catchPhrase": {
+              "type": "string"
+            },
+            "bs": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "Get_All_Users": {
+      "required": [
+        "userName",
+        "id",
+        "age"
+      ],
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "dataCount": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "uniqueItems": true
+            },
+            "name": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "company": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "bs": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Get_By_Id": {
+      "properties": {
+        "message": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "error": {
+          "type": "boolean"
+        },
+        "results": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "Delete_By_Id": {
+      "properties": {
+        "message": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "Update_By_Id": {
+      "properties": {
+        "TotalUsers": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "Response_Message": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "results": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "uniqueItems": true
+            },
+            "employee": {
+              "type": "object",
+              "properties": {
+                "first_name": {
+                  "type": "string"
+                },
+                "last_name": {
+                  "type": "string"
+                },
+                "employee_id": {
+                  "type": "number"
+                },
+                "job_id": {
+                  "type": "number"
+                },
+                "department_id": {
+                  "type": "number"
+                },
+                "manager_id": {
+                  "type": "number"
+                },
+                "age": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phone_number": {
+                  "type": "number"
+                }
+              }
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "pincode": {
+                  "type": "number"
+                }
+              }
+            },
+            "company_website": {
+              "type": "string"
+            },
+            "company": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "catchPhrase": {
+                  "type": "string"
+                },
+                "bs": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
